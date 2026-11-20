@@ -1,0 +1,18 @@
+package p12;
+
+public class Sueldo{
+    private double sueldo;
+   
+    Sueldo(double sueldo){
+        this.sueldo=sueldo;
+    }
+   
+    public double getSueldo(){
+        return sueldo;
+    }
+   
+    public void setSueldo(){
+        if(sueldo<0) this.sueldo=0;
+        if(sueldo>10000) this.sueldo=10000;
+    }
+}
