@@ -1,0 +1,29 @@
+package p12;
+
+import java.util.Scanner;
+
+public class MainEj1{
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		double sueldo;
+	
+		System.out.println("Ingrese un sueldo");
+		sueldo=read.nextDouble();
+		Sueldo com = new Sueldo(sueldo);
+		if (sueldo<0){
+		   System.out.println("El sueldo no puede ser negativo, por lo tanto se le asignará cómo 0");
+		   com.setSueldo();
+		   System.out.println("Sueldo: " + com.getSueldo());
+		}
+		else if(sueldo>10000){
+		   com.setSueldo();
+		   System.out.println("No se puede agregar un sueldo mayor a $10000, por lo tanto se le asignará como $10000");
+		   System.out.println("Sueldo: " + com.getSueldo());
+		}
+		else {
+		   com.setSueldo();
+		   System.out.println("Sueldo: " + com.getSueldo());
+		}
+		read.close();
+	}
+}
