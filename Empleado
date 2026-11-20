@@ -1,0 +1,34 @@
+package p12;
+
+public class Empleado{
+    private double sueldo, sueldof;
+    private String contraseña="Mpoo";
+    double aumento;
+   
+    Empleado(double sueldo, String contraseña){
+        this.sueldo=sueldo;
+        setSueldo();
+    }
+   
+    public double getSueldo(){
+        return sueldo;
+    }
+   
+    public void Verificacion(String contraseña, double porcentaje){
+        if("Mpoo".equals(contraseña)) {
+            System.out.println("Autorizado");
+            setSueldo();
+            aumento=sueldo*(porcentaje/100);
+            sueldof=sueldo+aumento;
+            this.sueldo=sueldof;
+            System.out.println("El sueldo nuevo es de: $" + sueldof);
+        }
+        else {
+            System.out.println("Contraseña incorrecta, no se asignará el aumento");
+        }
+    }
+   
+    public void setSueldo(){
+        if(sueldo<0) this.sueldo=0;
+    }
+}
