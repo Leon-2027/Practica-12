@@ -1,0 +1,86 @@
+package p12;
+
+import java.util.Scanner;
+
+public class MainEj2{
+    public static void main(String[] args){
+        Scanner read = new Scanner(System.in);
+        int op;
+        double sueldo, porcentaje;
+        String nombre, contraseña;
+       
+        System.out.println("¿A qué empleado se le va a aumentar el sueldo?");
+        System.out.println("1) Ejecutivo");
+        System.out.println("2) Gerente");
+        System.out.println("3) Ingeniero");
+        System.out.println("4) Salir");
+        op=read.nextInt();
+        do{
+            switch(op){
+                case 1:
+                    sueldo=12000;
+                    System.out.println("Ingrese el nombre del empleado");
+                    nombre=read.next();
+                    do{
+                    	System.out.println("¿Qué porcentaje se le va a aumentar? Rango: 10%-25%");
+                        porcentaje=read.nextDouble();
+                        if(porcentaje<10 || porcentaje>25) {
+                        	System.out.println("El aumento no puede ser menor a 10% ni mayor al 25%");
+                        }
+                    }while(porcentaje<10 || porcentaje>25);
+                    System.out.println("Escriba la contraseña para autorizar el aumento");
+                    contraseña=read.next();
+                    Empleado com = new Empleado(sueldo, contraseña);
+                    com.Verificacion(contraseña, porcentaje);
+                    System.out.println("¿Quiere hacer otro aumento?: 1) Ejecutivo, 2) Gerente, 3) Ingeniero, 4) Salir");
+                    op=read.nextInt();
+                    break;
+                case 2:
+                	 sueldo=10500;
+                     System.out.println("Ingrese el nombre del empleado");
+                     nombre=read.next();
+                     do{
+                     	System.out.println("¿Qué porcentaje se le va a aumentar? Rango: 10%-25%");
+                         porcentaje=read.nextDouble();
+                         if(porcentaje<10 || porcentaje>25) {
+                         	System.out.println("El aumento no puede ser menor a 10% ni mayor al 25%");
+                         }
+                     }while(porcentaje<10 || porcentaje>25);
+                     System.out.println("Escriba la contraseña para autorizar el aumento");
+                     contraseña=read.next();
+                     com = new Empleado(sueldo, contraseña);
+                     com.Verificacion(contraseña, porcentaje);
+                     System.out.println("¿Quiere hacer otro aumento?: 1) Ejecutivo, 2) Gerente, 3) Ingeniero, 4) Salir");
+                     op=read.nextInt();
+                    break;
+                case 3:
+                	 sueldo=9700;
+                     System.out.println("Ingrese el nombre del empleado");
+                     nombre=read.next();
+                     do{
+                     	System.out.println("¿Qué porcentaje se le va a aumentar? Rango: 10%-25%");
+                         porcentaje=read.nextDouble();
+                         if(porcentaje<10 || porcentaje>25) {
+                         	System.out.println("El aumento no puede ser menor a 10% ni mayor al 25%");
+                         }
+                     }while(porcentaje<10 || porcentaje>25);
+                     System.out.println("Escriba la contraseña para autorizar el aumento");
+                     contraseña=read.next();
+                     com = new Empleado(sueldo, contraseña);
+                     com.Verificacion(contraseña, porcentaje);
+                     System.out.println("¿Quiere hacer otro aumento?: 1) Ejecutivo, 2) Gerente, 3) Ingeniero, 4) Salir");
+                     op=read.nextInt();
+                    break;
+                case 4:
+                    System.out.println("Saliendo del sistema");
+                    break;
+                default:
+                    System.out.println("Opción inválida, escoja otra: 1) Ejecutivo, 2) Gerente, 3) Ingeniero, 4) Salir");
+                    op=read.nextInt();
+                    break;
+            }
+        }while(op!=4);
+       
+        read.close();
+    }
+}
