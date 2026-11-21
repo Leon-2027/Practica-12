@@ -1,0 +1,67 @@
+package p12;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cuenta {
+    private double saldo;
+    private final List<String> historial = new ArrayList<>();
+
+    public Cuenta(double saldoInicial) {
+        if (saldoInicial < 0) {
+            this.saldo = 0.0;
+        } else {
+            this.saldo = saldoInicial;
+        }
+        historial.add("Saldo inicial: $" + String.format("%.2f", this.saldo));
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void registrarDeposito(double monto, int tipoCuenta) {
+        if (tipoCuenta == 1) {
+            saldo = saldo + monto;
+            historial.add("Depósito (Cuenta propia): +$" + String.format("%.2f", monto) + " | Saldo: $" + String.format("%.2f", saldo));
+            System.out.println("Depósito realizado con éxito. Saldo actual: $" + String.format("%.2f", saldo));
+        } else if (tipoCuenta == 2) {
+            if (monto > saldo) {
+                System.out.println("Fondos insuficientes, usted cuenta con un saldo de $" + String.format("%.2f", saldo));
+            } else {
+                saldo = saldo - monto;
+                historial.add("Envío a cuenta ajena: -$" + String.format("%.2f", monto) + " | Saldo: $" + String.format("%.2f", saldo));
+                System.out.println("Operación a cuenta ajena realizada con éxito. Saldo actual: $" + String.format("%.2f", saldo));
+            }
+        } else {
+            System.out.println("Opción de cuenta inválida");
+        }
+    }
+
+    public void registrarRetiro(double monto) {
+        if (monto > saldo) {
+            System.out.println("Fondos insuficientes, usted cuenta con un saldo de $" + String.format("%.2f", saldo));
+        } else {
+            saldo = saldo - monto;
+            historial.add("Retiro: -$" + String.format("%.2f", monto) + " | Saldo: $" + String.format("%.2f", saldo));
+            System.out.println("Retiro exitoso. Saldo actual: $" + String.format("%.2f", saldo));
+        }
+    }
+
+    public void registrarTransferencia(double monto) {
+        if (monto > saldo) {
+            System.out.println("Fondos insuficientes, usted cuenta con un saldo de $" + String.format("%.2f", saldo));
+        } else {
+            saldo = saldo - monto;
+            historial.add("Transferencia: -$" + String.format("%.2f", monto) + " | Saldo: $" + String.format("%.2f", saldo));
+            System.out.println("Transferencia exitosa. Saldo actual: $" + String.format("%.2f", saldo));
+        }
+    }
+
+    public void mostrarHistorial() {
+        System.out.println("\n--- Historial de operaciones ---");
+        for (int i = 0; i < historial.size(); i++) {
+            System.out.println((i + 1) + ". " + historial.get(i));
+        }
+    }
+}
