@@ -1,0 +1,27 @@
+package p12;
+
+public class Retirar {
+    private double monto;
+
+    public Retirar() {
+    }
+
+    public Retirar(double monto) {
+        this.monto = monto;
+    }
+
+    public void setSaldo() {
+        if (monto < 0) {
+            System.out.println("La cantidad a retirar debe ser mayor a $0, ingrese otra");
+        }
+        if (monto > 11000) {
+            System.out.println("La cantidad a retirar no puede ser mayor a $11000, ingrese otra");
+        }
+    }
+
+    public void ejecutar(Cuenta cuenta) {
+        if (monto > 0 && monto <= 11000) {
+            cuenta.registrarRetiro(monto);
+        }
+    }
+}
