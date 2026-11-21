@@ -2,10 +2,9 @@ package p12;
 
 public class Empleado{
     private double sueldo, sueldof;
-    private String contraseña="Mpoo";
     double aumento;
    
-    Empleado(double sueldo, String contraseña){
+    Empleado(double sueldo, String contraseña, String nombre){
         this.sueldo=sueldo;
         setSueldo();
     }
