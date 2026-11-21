@@ -1,0 +1,77 @@
+package p12;
+
+import java.util.Scanner;
+
+public class MainEj3 {
+
+    public static void main(String[] args) {
+        Scanner read = new Scanner(System.in);
+        Cuenta cuenta = new Cuenta(30000.0);
+        int op, s;
+        double monto;
+
+        do {
+            System.out.println("\nSaldo actual: $" + String.format("%.2f", cuenta.getSaldo()));
+            System.out.println("Ingrese qué operación quiere realizar");
+            System.out.println("1) Depositar");
+            System.out.println("2) Retirar");
+            System.out.println("3) Transferencia");
+            System.out.println("4) Ver historial");
+            System.out.println("5) Salir");
+            op = read.nextInt();
+
+            switch (op) {
+                case 1: {
+                    Deposito d = null;
+                    do {
+                        System.out.println("¿Cuánto va a depositar?");
+                        monto = read.nextDouble();
+                        d = new Deposito(monto, 1);
+                        d.setSaldo();
+                    } while (monto <= 0 || monto > 15000);
+
+                    System.out.println("¿A qué cuenta?, 1) Propia, 2) Ajena");
+                    s = read.nextInt();
+                    d = new Deposito(monto, s);
+                    d.ejecutar(cuenta);
+                    break;
+                }
+                case 2: {
+                    Retirar r = null;
+                    do {
+                        System.out.println("¿Cuánto va a retirar?");
+                        monto = read.nextDouble();
+                        r = new Retirar(monto);
+                        r.setSaldo();
+                    } while (monto <= 0 || monto > 11000);
+
+                    r.ejecutar(cuenta);
+                    break;
+                }
+                case 3: {
+                    Transferencia t = null;
+                    do {
+                        System.out.println("¿Cuánto va a transferir?");
+                        monto = read.nextDouble();
+                        t = new Transferencia(monto);
+                        t.setSaldo();
+                    } while (monto <= 0 || monto > 15000);
+
+                    t.ejecutar(cuenta);
+                    break;
+                }
+                case 4:
+                    cuenta.mostrarHistorial();
+                    break;
+                case 5:
+                    System.out.println("Saliendo del sistema");
+                    break;
+                default:
+                    System.out.println("Opción inválida, seleccione otra");
+                    break;
+            }
+        } while (op != 5);
+
+        read.close();
+    }
+}
