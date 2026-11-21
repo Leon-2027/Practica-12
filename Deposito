@@ -1,0 +1,29 @@
+package p12;
+
+public class Deposito {
+    private double monto;
+    private int s;
+
+    public Deposito() {
+    }
+
+    public Deposito(double monto, int s) {
+        this.monto = monto;
+        this.s = s;
+    }
+
+    public void setSaldo() {
+        if (monto < 0) {
+            System.out.println("No se puede depositar una cantidad menor a $0, ingrese otra");
+        }
+        if (monto > 15000) {
+            System.out.println("No se puede depositar una cantidad mayor a $15000, ingrese otra");
+        }
+    }
+
+    public void ejecutar(Cuenta cuenta) {
+        if (monto > 0 && monto <= 15000) {
+            cuenta.registrarDeposito(monto, s);
+        }
+    }
+}
