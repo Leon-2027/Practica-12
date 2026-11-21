@@ -1,0 +1,27 @@
+package p12;
+
+public class Transferencia {
+    private double monto;
+
+    public Transferencia() {
+    }
+
+    public Transferencia(double monto) {
+        this.monto = monto;
+    }
+
+    public void setSaldo() {
+        if (monto < 0) {
+            System.out.println("No se puede transferir una cantidad menor a $0, ingrese otra cantidad");
+        }
+        if (monto > 15000) {
+            System.out.println("No puede transferir más de $15000, ingrese otra cantidad");
+        }
+    }
+
+    public void ejecutar(Cuenta cuenta) {
+        if (monto > 0 && monto <= 15000) {
+            cuenta.registrarTransferencia(monto);
+        }
+    }
+}
