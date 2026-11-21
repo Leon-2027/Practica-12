@@ -30,7 +30,7 @@ public class MainEj2{
                     }while(porcentaje<10 || porcentaje>25);
                     System.out.println("Escriba la contraseña para autorizar el aumento");
                     contraseña=read.next();
-                    Empleado com = new Empleado(sueldo, contraseña);
+                    Empleado com = new Empleado(sueldo, contraseña, nombre);
                     com.Verificacion(contraseña, porcentaje);
                     System.out.println("¿Quiere hacer otro aumento?: 1) Ejecutivo, 2) Gerente, 3) Ingeniero, 4) Salir");
                     op=read.nextInt();
@@ -48,7 +48,7 @@ public class MainEj2{
                      }while(porcentaje<10 || porcentaje>25);
                      System.out.println("Escriba la contraseña para autorizar el aumento");
                      contraseña=read.next();
-                     com = new Empleado(sueldo, contraseña);
+                     com = new Empleado(sueldo, contraseña, nombre);
                      com.Verificacion(contraseña, porcentaje);
                      System.out.println("¿Quiere hacer otro aumento?: 1) Ejecutivo, 2) Gerente, 3) Ingeniero, 4) Salir");
                      op=read.nextInt();
@@ -66,7 +66,7 @@ public class MainEj2{
                      }while(porcentaje<10 || porcentaje>25);
                      System.out.println("Escriba la contraseña para autorizar el aumento");
                      contraseña=read.next();
-                     com = new Empleado(sueldo, contraseña);
+                     com = new Empleado(sueldo, contraseña, nombre);
                      com.Verificacion(contraseña, porcentaje);
                      System.out.println("¿Quiere hacer otro aumento?: 1) Ejecutivo, 2) Gerente, 3) Ingeniero, 4) Salir");
                      op=read.nextInt();
